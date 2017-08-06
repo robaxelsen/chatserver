@@ -25,7 +25,9 @@ func main() {
     log.Panic(err.Error())
   }
   router := NewRouter(session)
+
   router.Handle("channel add", addChannel)
+  router.Handle("channel subscribe", subscribeChannel)
   http.Handle("/", router)
   http.ListenAndServe(":4000", nil)
 }
